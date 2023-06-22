@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import AllPost from "./Components/AllPost";
+import AllUser from "./Components/AllUser";
+import AddPost from "./Components/addPost";
+import {Route, Routes} from "react-router-dom";
+import Layout from "./Components/Layout";
+import EditPost from "./Components/EditPost";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Layout>
+            <Routes>
+                <Route path={"/posts"} element={<AllPost/>}></Route>
+                <Route path={"/add-post"} element={<AddPost/>}></Route>
+                <Route path={"/edit-post/:id"} element={<EditPost/>}></Route>
+                <Route path={"/users"} element={<AllUser/>}></Route>
+            </Routes>
+        </Layout>
+    );
 }
 
 export default App;
